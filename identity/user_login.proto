@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "core/http.proto";
+
+option java_package = "org.rooftop.api.identity";
+option java_multiple_files = true;
+
+message UserLoginReq {
+  string name = 1;
+  string password = 2;
+}
+
+message UserLoginRes {
+  string token = 1;
+}
+
+service UserLoginApi {
+  option(rooftop.proto.core.http) = {
+    post: "/v1/logins",
+    headers: [
+      {
+        key: "Content-Type"
+        value: "application/json"
+      }
+    ],
+  };
+
+  rpc Login(UserLoginReq) returns (UserLoginRes);
+}

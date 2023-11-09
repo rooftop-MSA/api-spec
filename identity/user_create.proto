@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "core/http.proto";
+
+option java_package = "org.rooftop.api.identity";
+option java_multiple_files = true;
+
+message UserCreateReq {
+  string name = 1;
+  string password = 2;
+}
+
+service UserCreateApi {
+  option (rooftop.proto.core.http) = {
+    post: "/v1/users",
+    headers: [
+      {
+        key: "Content-Type"
+        value: "application/json"
+      }
+    ],
+  };
+
+  rpc CreateUser(UserCreateReq) returns (google.protobuf.Empty);
+}

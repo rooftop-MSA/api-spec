@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "core/http.proto";
+
+option java_package = "org.rooftop.api.identity";
+option java_multiple_files = true;
+
+message UserGetRes {
+  uint64 id = 1;
+  string name = 2;
+}
+
+service UserGetApi {
+  option(rooftop.proto.core.http) = {
+    get: "/v1/users",
+    params: {
+      key: "name",
+      value: "string",
+    }
+  };
+
+  rpc GetUser(google.protobuf.Empty) returns(UserGetRes);
+}
