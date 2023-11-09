@@ -1,5 +1,8 @@
-name: reviewdog
-on: [pull_request]
+name: Protobuf Checker
+
+on: 
+  pull_request:
+
 jobs:
   reviewdog:
     name: reviewdog
