@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package rooftop.proto.core;
+
+import "google/protobuf/descriptor.proto";
+
+option java_package = "org.rooftop.api.core";
+option java_multiple_files = true;
+
+message Http {
+
+  oneof pattern {
+    string get = 1;
+    string post = 2;
+    string patch = 3;
+    string put = 4;
+    string delete = 5;
+  }
+
+  map<string, string> params = 9;
+
+  map<string, string> headers = 10;
+
+  bool internal_api = 11;
+}
+
+extend google.protobuf.ServiceOptions {
+  Http http = 9948283;
+}

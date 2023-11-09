@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "core/http.proto";
+
+option java_package = "org.rooftop.api.identity";
+option java_multiple_files = true;
+
+service DeleteUserApi {
+  option(rooftop.proto.core.http) = {
+    delete: "v1/users",
+    headers: [
+      {
+        key: "id"
+        value: "uint64"
+      },
+      {
+        key: "password"
+        value: "string"
+      },
+      {
+        key: "Content-Type"
+        value: "application/json"
+      }
+    ],
+  };
+
+  rpc DeleteUser(google.protobuf.Empty) returns(google.protobuf.Empty);
+}
