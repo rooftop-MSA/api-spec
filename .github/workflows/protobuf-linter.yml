@@ -1,10 +1,11 @@
 name: Protobuf Checker
 
-on: 
+on:
   pull_request:
 
 jobs:
   reviewdog:
+    permissions: write-all
     name: reviewdog
     runs-on: ubuntu-latest
     steps:
