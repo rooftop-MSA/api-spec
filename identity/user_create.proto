@@ -18,7 +18,7 @@ service UserCreateApi {
     headers: [
       {
         key: "Content-Type"
-        value: "application/json"
+        value: "application/x-protobuf"
       }
     ],
   };

@@ -19,7 +19,7 @@ service UserUpdateApi {
     headers: [
       {
         key: "Content-Type"
-        value: "application/json"
+        value: "application/x-protobuf"
       },
       {
         key: "Authorization"
