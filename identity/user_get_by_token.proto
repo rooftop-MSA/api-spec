@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "core/http.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "org.rooftop.api.identity";
+option java_multiple_files = true;
+
+message UserGetByTokenRes {
+  uint64 id = 1;
+  string name = 2;
+}
+
+service UserGetByTokenApi {
+  option(rooftop.proto.core.http) = {
+    get: "/v1/users/tokens"
+    headers: {
+      key: "Authorization",
+      value: "JWT"
+    }
+  };
+
+  rpc GetUserByToken(google.protobuf.Empty) returns (UserGetByTokenRes);
+}
