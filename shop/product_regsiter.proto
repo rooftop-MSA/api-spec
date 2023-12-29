@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "core/http.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "org.rooftop.api.shop";
+option java_multiple_files = true;
+
+message ProductRegisterReq {
+  string title = 1;
+  string description = 2;
+  uint64 price = 3;
+  uint64 quantity = 4;
+}
+
+service RegisterProductApi {
+  option(rooftop.proto.core.http) = {
+    post: "/v1/products",
+    headers: [
+      {
+        key: "Authorization",
+        value: "JWT"
+      },
+      {
+        key: "Content-Type",
+        value: "application/x-protobuf"
+      }
+    ]
+  };
+
+  rpc RegisterProduct(ProductRegisterReq) returns(google.protobuf.Empty);
+}
