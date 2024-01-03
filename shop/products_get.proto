@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "core/http.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "org.rooftop.api.shop";
+option java_multiple_files = true;
+
+message ProductsRes {
+
+  repeated Product products = 1;
+
+  message Product {
+    uint64 id = 1;
+    uint64 seller_id = 2;
+    string title = 3;
+    string description = 4;
+    uint64 price = 5;
+    uint64 quantity = 6;
+  }
+}
+
+service GetProductsApi {
+  option(rooftop.proto.core.http) = {
+    get: "/v1/products"
+    headers: {
+      key: "Authorization"
+      value: "JWT"
+    },
+    params: [
+      {
+        key: "last-product-id"
+        value: "Long"
+      }
+    ]
+  };
+
+  rpc GetProducts(google.protobuf.Empty) returns (ProductsRes);
+}
