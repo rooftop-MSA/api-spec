@@ -12,7 +12,7 @@ message ProductsRes {
 
   message Product {
     uint64 id = 1;
-    uint64 sellerId = 2;
+    uint64 seller_id = 2;
     string title = 3;
     string description = 4;
     uint64 price = 5;
