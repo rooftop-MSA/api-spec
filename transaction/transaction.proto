@@ -3,16 +3,16 @@ syntax = "proto3";
 option java_package = "org.rooftop.api.transaction";
 option java_multiple_files = true;
 
-enum TRANSACTION_STATE {
-  UNSPECIFIED = 0;
-  JOIN = 1;
-  COMMIT = 4;
-  ROLLBACK = 7;
+enum TransactionState {
+  TRANSACTION_STATE_UNSPECIFIED = 0;
+  TRANSACTION_STATE_JOIN = 1;
+  TRANSACTION_STATE_COMMIT = 4;
+  TRANSACTION_STATE_ROLLBACK = 7;
 }
 
 message Transaction {
   string id = 1;
   string server_id = 3;
-  TRANSACTION_STATE state = 5;
+  TransactionState state = 5;
   optional string cause = 9;
 }
