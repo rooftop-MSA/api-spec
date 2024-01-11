@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "core/http.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "org.rooftop.api.order";
+option java_multiple_files = true;
+
+message OrderReq {
+  uint64 user_id = 1;
+  uint64 product_id = 5;
+  uint32 quantity = 10;
+}
+
+message OrderRes {
+  uint64 order_id = 1;
+}
+
+service OrderApi {
+  option(rooftop.proto.core.http) = {
+    post: "/v1/orders",
+    headers: [
+      {
+        key: "Authorization",
+        value: "JWT"
+      },
+      {
+        key: "Content-Type",
+        value: "application/x-protobuf"
+      }
+    ]
+  };
+
+  rpc Order(OrderReq) returns (OrderRes);
+}
