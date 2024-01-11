@@ -6,12 +6,12 @@ import "google/protobuf/empty.proto";
 option java_package = "org.rooftop.api.identity";
 option java_multiple_files = true;
 
-message UserGetRes {
+message UserGetByNameRes {
   uint64 id = 1;
   string name = 2;
 }
 
-service UserGetApi {
+service UserGetByNameApi {
   option(rooftop.proto.core.http) = {
     get: "/v1/users",
     params: {
@@ -20,5 +20,5 @@ service UserGetApi {
     }
   };
 
-  rpc GetUser(google.protobuf.Empty) returns(UserGetRes);
+  rpc GetUserByName(google.protobuf.Empty) returns(UserGetByNameRes);
 }
