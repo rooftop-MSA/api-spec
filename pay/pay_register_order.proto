@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "core/http.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "org.rooftop.api.pay";
+option java_multiple_files = true;
+
+message PayRegisterOrderReq {
+  uint64 order_id = 1;
+  string transaction_id = 2;
+}
+
+service PayRegisterOrderApi {
+  option(rooftop.proto.core.http) = {
+    post: "/v1/pays/orders",
+    headers: {
+      key: "Content-Type",
+      value: "application/x-protobuf"
+    }
+  };
+
+  rpc registerOrder(PayRegisterOrderReq) returns(google.protobuf.Empty);
+}
