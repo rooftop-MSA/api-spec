@@ -20,5 +20,5 @@ service PayRegisterOrderApi {
     }
   };
 
-  rpc registerOrder(PayRegisterOrderReq) returns(google.protobuf.Empty);
+  rpc RegisterOrder(PayRegisterOrderReq) returns(google.protobuf.Empty);
 }
