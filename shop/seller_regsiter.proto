@@ -12,7 +12,17 @@ service SellerRegisterApi {
     headers: {
       key: "Authorization"
       value: "JWT"
-    }
+    },
+    responses: [
+      {
+        key: "When register seller successful, 200 OK returned.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When not signed up user attempts to register as seller, 400 Bad Request returned.",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
   };
 
   rpc RegisterUser(google.protobuf.Empty) returns (google.protobuf.Empty);

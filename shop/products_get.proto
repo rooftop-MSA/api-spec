@@ -32,7 +32,11 @@ service GetProductsApi {
         key: "last-product-id"
         value: "Long"
       }
-    ]
+    ],
+    responses: {
+      key: "When the product is successfully found, 200 OK is returned.",
+      value: STATUS_CODE_200_OK
+    }
   };
 
   rpc GetProducts(google.protobuf.Empty) returns (ProductsRes);
