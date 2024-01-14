@@ -3,7 +3,7 @@ syntax = "proto3";
 package rooftop.proto.core;
 
 import "google/protobuf/descriptor.proto";
-import "status_code.proto";
+import "core/status_code.proto";
 
 option java_package = "org.rooftop.api.core";
 option java_multiple_files = true;
