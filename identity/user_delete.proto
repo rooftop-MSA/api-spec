@@ -27,6 +27,16 @@ service DeleteUserApi {
         value: "Token"
       }
     ],
+    responses: [
+      {
+        key: "When delete user successful.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When incorrect user password or cannot find stored user",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
   };
 
   rpc DeleteUser(google.protobuf.Empty) returns(google.protobuf.Empty);

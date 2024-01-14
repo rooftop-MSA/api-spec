@@ -25,6 +25,16 @@ service RegisterProductApi {
         key: "Content-Type",
         value: "application/x-protobuf"
       }
+    ],
+    responses: [
+      {
+        key: "When register product successful.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When not registered seller attempts to register a product.",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
     ]
   };
 

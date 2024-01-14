@@ -3,6 +3,7 @@ syntax = "proto3";
 package rooftop.proto.core;
 
 import "google/protobuf/descriptor.proto";
+import "status_code.proto";
 
 option java_package = "org.rooftop.api.core";
 option java_multiple_files = true;
@@ -22,6 +23,8 @@ message Http {
   map<string, string> headers = 10;
 
   bool internal_api = 11;
+
+  map<string, StatusCode> responses = 12;
 }
 
 extend google.protobuf.ServiceOptions {

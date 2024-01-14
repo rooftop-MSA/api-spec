@@ -28,6 +28,16 @@ service OrderApi {
         key: "Content-Type",
         value: "application/x-protobuf"
       }
+    ],
+    responses: [
+      {
+        key: "When order create successful.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When incorrect order request received.",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
     ]
   };
 

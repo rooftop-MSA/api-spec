@@ -14,7 +14,28 @@ message ProductConsumeReq {
 
 service ConsumeProductApi {
   option(rooftop.proto.core.http) = {
+    internal_api: true,
     post: "/v1/products/consumes",
+    headers: [
+      {
+        key: "Authorization",
+        value: "JWT"
+      },
+      {
+        key: "Content-Type",
+        value: "application/x-protobuf"
+      }
+    ],
+    responses: [
+      {
+        key: "When consume product successful.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When stored.quantity < consumed.quantity",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
   };
 
   rpc ConsumeProduct(ProductConsumeReq) returns (google.protobuf.Empty);

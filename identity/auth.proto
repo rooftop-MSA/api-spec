@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "core/http.proto";
+import "core/status_code.proto";
 import "google/protobuf/empty.proto";
 
 option java_package = "org.rooftop.api.identity";
@@ -20,6 +21,16 @@ service AuthApi {
         value: "uint64"
       }
     ],
+    responses: [
+      {
+        key: "When token authentication is successful.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When an invalid token is received.",
+        value: STATUS_CODE_401_UNAUTHORIZED
+      }
+    ]
   };
 
   rpc auth(google.protobuf.Empty) returns(google.protobuf.Empty);

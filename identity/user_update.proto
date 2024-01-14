@@ -26,6 +26,16 @@ service UserUpdateApi {
         value: "Token"
       }
     ],
+    responses: [
+      {
+        key: "When update user successful.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When incorrect user info received.",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
   };
 
   rpc UpdateUser(UserUpdateReq) returns(google.protobuf.Empty);
