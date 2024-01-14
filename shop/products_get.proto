@@ -34,7 +34,7 @@ service GetProductsApi {
       }
     ],
     responses: {
-      key: "When the product is successfully found, 200 OK is returned.",
+      key: "When the product is successfully found.",
       value: STATUS_CODE_200_OK
     }
   };

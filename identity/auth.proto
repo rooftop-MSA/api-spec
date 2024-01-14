@@ -23,11 +23,11 @@ service AuthApi {
     ],
     responses: [
       {
-        key: "When token authentication is successful, 200 OK is returned.",
+        key: "When token authentication is successful.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When an invalid token is received, 401 is returned.",
+        key: "When an invalid token is received.",
         value: STATUS_CODE_401_UNAUTHORIZED
       }
     ]

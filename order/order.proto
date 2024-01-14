@@ -31,11 +31,11 @@ service OrderApi {
     ],
     responses: [
       {
-        key: "When order create successful, 200 OK returned.",
+        key: "When order create successful.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When incorrect order request received, 400 Bad Request returned.",
+        key: "When incorrect order request received.",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

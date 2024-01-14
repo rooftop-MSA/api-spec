@@ -15,11 +15,11 @@ service SellerRegisterApi {
     },
     responses: [
       {
-        key: "When register seller successful, 200 OK returned.",
+        key: "When register seller successful.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When not signed up user attempts to register as seller, 400 Bad Request returned.",
+        key: "When not signed up user attempts to register as seller",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

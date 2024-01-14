@@ -22,7 +22,7 @@ service PayRegisterOrderApi {
     },
     responses: [
       {
-        key: "When register order info successful, 200 OK returned.",
+        key: "When register order info successful.",
         value: STATUS_CODE_200_OK
       }
     ]

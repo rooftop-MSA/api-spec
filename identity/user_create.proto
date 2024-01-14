@@ -23,11 +23,11 @@ service UserCreateApi {
     ],
     responses: [
       {
-        key: "When create user successful, 200 OK returned.",
+        key: "When create user successful.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When duplicated user created request received, 400 Bad Request returned.",
+        key: "When duplicated user created request received",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

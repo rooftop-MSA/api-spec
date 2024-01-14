@@ -25,11 +25,11 @@ service UserLoginApi {
     ],
     responses: [
       {
-        key: "When login successfully, 200 OK is returned.",
+        key: "When login successfully.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When incorrect user info received, 400 Bad Request is returned.",
+        key: "When incorrect user info received.",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

@@ -20,11 +20,11 @@ service UserGetByIdApi {
     },
     responses: [
       {
-        key: "When the user is successfully found, 200 OK is returned.",
+        key: "When the user is successfully found.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When the user cannot be found, 400 Bad Request is returned.",
+        key: "When the user cannot be found.",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

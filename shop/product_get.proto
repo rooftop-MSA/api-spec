@@ -24,11 +24,11 @@ service GetProductApi {
     },
     responses: [
       {
-        key: "When the product is successfully found, 200 OK is returned.",
+        key: "When the product is successfully found.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When the product cannot be found, 400 Bad Request is returned.",
+        key: "When the product cannot be found.",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

@@ -28,11 +28,11 @@ service ConsumeProductApi {
     ],
     responses: [
       {
-        key: "When consume product successful, 200 OK returned.",
+        key: "When consume product successful.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When stored.quantity < consumed.quantity, 400 Bad Request returned.",
+        key: "When stored.quantity < consumed.quantity",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

@@ -29,11 +29,11 @@ service DeleteUserApi {
     ],
     responses: [
       {
-        key: "When delete user successful, 200 OK returned.",
+        key: "When delete user successful.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When incorrect user password or cannot find stored user, 400 Bad Request returned.",
+        key: "When incorrect user password or cannot find stored user",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]

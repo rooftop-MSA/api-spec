@@ -28,11 +28,11 @@ service RegisterProductApi {
     ],
     responses: [
       {
-        key: "When register product successful, 200 OK returned.",
+        key: "When register product successful.",
         value: STATUS_CODE_200_OK
       },
       {
-        key: "When not registered seller attempts to register a product, 400 Bad Request returned.",
+        key: "When not registered seller attempts to register a product.",
         value: STATUS_CODE_400_BAD_REQUEST
       }
     ]
