@@ -13,11 +13,19 @@ message PayRegisterOrderReq {
 
 service PayRegisterOrderApi {
   option(rooftop.proto.core.http) = {
+    internal_api: true,
+
     post: "/v1/pays/orders",
     headers: {
       key: "Content-Type",
       value: "application/x-protobuf"
-    }
+    },
+    responses: [
+      {
+        key: "When register order info successful, 200 OK returned.",
+        value: STATUS_CODE_200_OK
+      }
+    ]
   };
 
   rpc RegisterOrder(PayRegisterOrderReq) returns(google.protobuf.Empty);
