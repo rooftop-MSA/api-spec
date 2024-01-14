@@ -23,6 +23,16 @@ service UserLoginApi {
         value: "application/x-protobuf"
       }
     ],
+    responses: [
+      {
+        key: "When login successfully, 200 OK is returned.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When incorrect user info received, 400 Bad Request is returned.",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
   };
 
   rpc Login(UserLoginReq) returns (UserLoginRes);

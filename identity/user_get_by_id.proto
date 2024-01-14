@@ -13,7 +13,21 @@ message UserGetByIdRes {
 
 service UserGetByIdApi {
   option(rooftop.proto.core.http) = {
-    get: "/v1/users/{id}"
+    get: "/v1/users/{id}",
+    headers: {
+      key: "Content-Type",
+      value: "application/x-protobuf"
+    },
+    responses: [
+      {
+        key: "When the user is successfully found, 200 OK is returned.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When the user cannot be found, 400 Bad Request is returned.",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
   };
 
   rpc GetUserById(google.protobuf.Empty) returns(UserGetByIdRes);

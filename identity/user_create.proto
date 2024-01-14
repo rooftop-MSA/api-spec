@@ -21,6 +21,16 @@ service UserCreateApi {
         value: "application/x-protobuf"
       }
     ],
+    responses: [
+      {
+        key: "When create user successful, 200 OK returned.",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When duplicated user created request received, 400 Bad Request returned.",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
   };
 
   rpc CreateUser(UserCreateReq) returns (google.protobuf.Empty);
