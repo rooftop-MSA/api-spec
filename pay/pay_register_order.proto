@@ -8,7 +8,9 @@ option java_multiple_files = true;
 
 message PayRegisterOrderReq {
   uint64 order_id = 1;
+  uint64 user_id = 3;
   string transaction_id = 2;
+  uint64 price = 4;
 }
 
 service PayRegisterOrderApi {
