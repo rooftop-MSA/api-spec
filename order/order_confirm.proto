@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "core/http.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "org.rooftop.api.order";
+option java_multiple_files = true;
+
+enum ConfirmState {
+  CONFIRM_STATE_UNSPECIFIED = 0;
+  CONFIRM_STATE_SUCCESS = 1;
+  CONFIRM_STATE_FAILED = 2;
+}
+
+message OrderConfirmReq {
+  uint64 order_id = 1;
+  string transaction_id = 2;
+  ConfirmState confirm_state = 3;
+}
+
+service OrderConfirmApi {
+  option(rooftop.proto.core.http) = {
+    internal_api: true,
+
+    post: "/v1/orders/confirms",
+    headers: {
+      key: "Content-Type",
+      value: "application/x-protobuf"
+    },
+    responses: [
+      {
+        key: "When confirm order successful",
+        value: STATUS_CODE_200_OK
+      }
+    ]
+  };
+
+  rpc ConfirmOrder(OrderConfirmReq) returns (google.protobuf.Empty);
+}
