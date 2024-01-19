@@ -7,7 +7,7 @@ option java_package = "org.rooftop.api.shop";
 option java_multiple_files = true;
 
 message ProductConsumeReq {
-  uint64 transaction_id = 1;
+  string transaction_id = 1;
   uint64 product_id = 2;
   uint64 consume_quantity = 3;
 }
@@ -17,10 +17,6 @@ service ConsumeProductApi {
     internal_api: true,
     post: "/v1/products/consumes",
     headers: [
-      {
-        key: "Authorization",
-        value: "JWT"
-      },
       {
         key: "Content-Type",
         value: "application/x-protobuf"
