@@ -9,7 +9,7 @@ option java_multiple_files = true;
 message OrderReq {
   uint64 user_id = 1;
   uint64 product_id = 5;
-  uint32 quantity = 10;
+  uint64 quantity = 10;
 }
 
 message OrderRes {
