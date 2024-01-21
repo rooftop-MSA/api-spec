@@ -6,6 +6,10 @@ import "google/protobuf/empty.proto";
 option java_package = "org.rooftop.api.shop";
 option java_multiple_files = true;
 
+message SellerRegisterRes {
+  uint64 id = 1;
+}
+
 service SellerRegisterApi {
   option(rooftop.proto.core.http) = {
     post: "/v1/sellers"
@@ -25,5 +29,5 @@ service SellerRegisterApi {
     ]
   };
 
-  rpc RegisterUser(google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc RegisterUser(google.protobuf.Empty) returns (SellerRegisterRes);
 }
