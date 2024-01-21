@@ -13,6 +13,10 @@ message ProductRegisterReq {
   uint64 quantity = 4;
 }
 
+message ProductRegisterRes {
+  uint64 id = 1;
+}
+
 service RegisterProductApi {
   option(rooftop.proto.core.http) = {
     post: "/v1/products",
@@ -38,5 +42,5 @@ service RegisterProductApi {
     ]
   };
 
-  rpc RegisterProduct(ProductRegisterReq) returns(google.protobuf.Empty);
+  rpc RegisterProduct(ProductRegisterReq) returns(ProductRegisterRes);
 }
