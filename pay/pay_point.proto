@@ -8,7 +8,6 @@ option java_multiple_files = true;
 
 message PayPointReq {
   uint64 order_id = 1;
-  uint64 user_id = 2;
 }
 
 service PayPointApi {
