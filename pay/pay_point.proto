@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "core/http.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "org.rooftop.api.pay";
+option java_multiple_files = true;
+
+message PayPointReq {
+  uint64 order_id = 1;
+}
+
+service PayPointApi {
+  option(rooftop.proto.core.http) = {
+    post: "/v1/pays/points",
+
+    headers: [
+      {
+        key: "Content-Type",
+        value: "application/x-protobuf"
+      },
+      {
+        key: "Authorization",
+        value: "JWT"
+      }
+    ],
+    responses: [
+      {
+        key: "When pay succeded",
+        value: STATUS_CODE_200_OK
+      },
+      {
+        key: "When don't have enough money",
+        value: STATUS_CODE_400_BAD_REQUEST
+      }
+    ]
+  };
+
+  rpc PayPoint(PayPointReq) returns (google.protobuf.Empty);
+}
